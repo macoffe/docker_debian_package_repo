@@ -1,0 +1,6 @@
+Origin: my debian repo
+Label: my debian repo
+Codename: bullseye
+Architectures: i386 amd64
+Components: main
+Description: Apt repository
