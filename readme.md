@@ -12,7 +12,7 @@
 
 #### To run the container:
 
-    docker run -it -p 80:80 --name my-repo debian_repo
+    docker run -it -p 80:80 -v /srv/packages:/packages --name my-repo debian_repo
 
 #### Each time you want to add a package to the repository:
 
@@ -22,7 +22,7 @@ in one terminal window, reconnect in interactive mode to the repo container if y
 
 in another terminal window, copy your package to the repo.
 
-    docker cp package_example.deb my-repo:/packages/.
+    cp package_example.deb /srv/packages/.
 
 in the first terminal window, enter the gpg key passphrase (by default *"repo4u5er"*).
 
