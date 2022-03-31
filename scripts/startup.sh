@@ -4,9 +4,9 @@ check_package () {
     file=${1}
     if [[ "${file}" =~ .*deb$ ]]; then
         reprepro -S package -P package includedeb bullseye ${file}
-        echo "${file} added to the repository." >> /repo.log
+        echo "${file} added to the repository." >> /var/log/repo.log
     else
-        echo "${file} received but it don't have .deb extension, not added to the repository." >> /repo.log
+        echo "${file} received but it don't have .deb extension, not added to the repository." >> /var/log/repo.log
     fi
 }
 
