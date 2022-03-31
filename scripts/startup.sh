@@ -1,6 +1,7 @@
 #!/bin/bash
 
-function check_package($file){
+check_package () {
+    file=${1}
     if [[ "${file}" =~ .*deb$ ]]; then
         reprepro -S package -P package includedeb bullseye ${file}
         echo "${file} added to the repository." >> /repo.log
@@ -29,11 +30,11 @@ gpg --armor --output my_repo_public.gpg.key --export-options export-minimal --ex
 
 #if packages already exist in /packages, try to add it to the repository.
 for file in /packages/*; do
-    check_package(${file})
+    check_package ${file}
 done
 
 #wait for a file with ".deb" extension to be added in /packages directory, and try to add it to the repository.
 inotifywait -m /packages/ -e create -e moved_to |
     while read directory action file; do
-        check_package(${directory}${file})
+        check_package ${directory}${file}
     done

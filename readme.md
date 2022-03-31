@@ -40,4 +40,4 @@ in the first terminal window, enter the gpg key passphrase (by default *"repo4u5
 
 ---
 - to access the repository in a web browser, type the url: "*repository_host_ip*/repos/apt/debian".
-- */repo.log* is a simple log file that allow you to keep track of the imported packages.
+- */var/log/repo.log* is a simple log file that allow you to keep track of the imported packages.
